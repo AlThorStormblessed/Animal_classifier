@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Image classifier</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Classify Images - Dogs, Cats and Pandas!</h1>
+  <h5>Using K-Nearest Neighbours Algorithm</h5>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post" enctype="multipart/form-data">
+    	<input type="file" name="files" id="myFile"/> <br /><br />
+     
+      <button style="margin-left: 12px" type="submit">Submit</button>
+      <br /><br />
+      <img src="data:image/jpeg;base64,{{ img_data }}" id="img-upload" height=300px alt="img_data" class="img-upload"/>
+
+    </form>
+   <p>{{ prediction_text }}</p>
+
+ </div>
+</body>
+</html>
